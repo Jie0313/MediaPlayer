@@ -66,5 +66,13 @@ namespace MediaPlayer
         {
             wmpVideo.Ctlcontrols.stop();
         }
+
+        private void frmMediaPlayer_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            var result = MessageBox.Show("確定要關閉應用程式嗎？", "關閉確認",
+                MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (result == DialogResult.No)
+                e.Cancel = true;
+        }
     }
 }
